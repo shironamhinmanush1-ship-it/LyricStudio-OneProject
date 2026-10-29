@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#10121b">
+<title>Lyric Studio — Rony</title>
+<style>
+:root{--bg:#0c0e15;--panel:#151925;--panel2:#1c2231;--text:#f5f6fb;--muted:#a6aec2;--accent:#8b7cff;--line:#2b3245;--good:#71e0bd}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(1000px 500px at 80% -10%,#29204f 0%,transparent 55%),var(--bg);color:var(--text);font:16px system-ui,-apple-system,"Noto Sans Bengali",sans-serif}
+header{padding:24px 18px 16px;max-width:1050px;margin:auto} .eyebrow{color:#b9b0ff;font-size:12px;letter-spacing:2px;font-weight:800}h1{font-size:clamp(27px,5vw,42px);margin:8px 0 5px;line-height:1.15}header p{color:var(--muted);margin:0}
+main{max-width:1050px;margin:auto;padding:0 14px 40px;display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:820px){main{grid-template-columns:1.05fr .95fr}}
+.card{background:linear-gradient(160deg,var(--panel),#111520);border:1px solid var(--line);border-radius:20px;padding:17px;box-shadow:0 12px 35px #0002}
+h2{font-size:18px;margin:0 0 14px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:11px}.field.full{grid-column:1/-1}label{font-size:13px;color:var(--muted)}input,select,textarea{width:100%;background:#0d111b;color:var(--text);border:1px solid #343c51;border-radius:11px;padding:12px;font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--accent)}textarea{min-height:210px;resize:vertical;line-height:1.65}#styleOutput{min-height:160px}button,.file-label{border:0;border-radius:12px;padding:12px 14px;background:var(--accent);color:white;font-weight:750;font-size:14px;cursor:pointer}button.secondary{background:var(--panel2);border:1px solid var(--line)}button.good{background:#146a5a}button:active{transform:scale(.98)}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.hint{font-size:12px;color:var(--muted);line-height:1.5}.status{min-height:20px;color:var(--good);font-size:13px;margin-top:8px}.preview{white-space:pre-wrap;background:#0d111b;border:1px solid var(--line);border-radius:12px;padding:14px;min-height:120px;line-height:1.7}.tag{display:inline-block;background:#2a2850;color:#c9c2ff;border-radius:99px;padding:5px 9px;font-size:11px;margin:3px 3px 12px 0}.footer{text-align:center;color:#727b91;font-size:12px;padding:5px 16px 25px}
+</style>
+</head>
+<body>
+<header>
+<div class="eyebrow">OFFLINE CREATIVE WORKSPACE</div>
+<h1>Lyric Studio <span style="color:#a69bff">✦</span></h1>
+<p>গান লিখুন, গুছিয়ে রাখুন, আর নিজের Style Box তৈরি করুন — সহজ ও পরিষ্কারভাবে।</p>
+</header>
+<main>
+<section class="card">
+<h2>🎼 গানের খাতা</h2>
+<div class="grid">
+<div class="field"><label for="songTitle">গানের নাম</label><input id="songTitle" placeholder="যেমন: অন্ধকারের ওপারে তুমি"></div>
+<div class="field"><label for="language">ভাষা</label><select id="language"><option>বাংলা</option><option>Hindi (Roman)</option><option>English</option><option>বাংলা + English</option></select></div>
+<div class="field"><label for="genre">ধরন</label><select id="genre"><option>Emotional Ballad</option><option>Soft Rock</option><option>Dark Melodic Rock</option><option>Modern 90s Pop</option><option>Acoustic Folk</option><option>Alternative Rock</option><option>নিজস্ব</option></select></div>
+<div class="field"><label for="mood">মুড</label><select id="mood"><option>আবেগী ও হৃদয়ছোঁয়া</option><option>বিরহ ও একাকিত্ব</option><option>আশাবাদী</option><option>রোমান্টিক</option><option>এনার্জেটিক</option><option>রহস্যময়</option></select></div>
+</div>
+<div class="field"><label for="lyrics">লিরিক (প্রয়োজনে Verse / Chorus আলাদা করুন)</label><textarea id="lyrics" placeholder="[Verse 1]&#10;এখানে আপনার লিরিক লিখুন...&#10;&#10;[Chorus]&#10;গানের মূল হুক এখানে..."></textarea></div>
+<div class="actions">
+<button id="saveBtn" class="good">এই ডিভাইসে সেভ</button>
+<button id="txtBtn" class="secondary">লিরিক .TXT ডাউনলোড</button>
+<button id="clearBtn" class="secondary">খালি করুন</button>
+</div>
+<div id="songStatus" class="status" role="status"></div>
+<p class="hint">সেভ করা ডেটা এই ডিভাইসের ব্রাউজার/অ্যাপ স্টোরেজে থাকে। অ্যাপের ডেটা মুছে ফেললে সেভ করা খসড়া হারাতে পারে—গুরুত্বপূর্ণ লিরিক TXT হিসেবেও রাখুন।</p>
+</section>
+<section class="card">
+<h2>✨ Style Box Builder</h2>
+<span class="tag">Male Vocal option</span><span class="tag">Offline</span><span class="tag">Copy-ready</span>
+<div class="grid">
+<div class="field"><label for="vocal">ভোকাল</label><select id="vocal"><option>Emotional male vocal</option><option>Soft warm male vocal</option><option>Powerful male rock vocal</option><option>Natural intimate male vocal</option><option>Instrumental only</option></select></div>
+<div class="field"><label for="tempo">টেম্পো</label><select id="tempo"><option>Slow, 68–72 BPM</option><option>Mid-tempo, 85–100 BPM</option><option>Upbeat, 110–125 BPM</option><option>Fast, 130–150 BPM</option></select></div>
+<div class="field full"><label for="instruments">ইন্সট্রুমেন্ট</label><input id="instruments" value="Soft piano, acoustic guitar, bass, live drums, emotional strings"></div>
+<div class="field full"><label for="arc">গানের আবেগের যাত্রা</label><input id="arc" value="Loneliness → pain → emotional chorus → quiet hope"></div>
+</div>
+<div class="field"><label for="styleOutput">তৈরি Style Box</label><textarea id="styleOutput" readonly placeholder="Generate চাপলে Style Box এখানে আসবে"></textarea></div>
+<div class="actions"><button id="makeStyle">Style Box তৈরি</button><button id="copyStyle" class="secondary">কপি করুন</button><button id="downloadStyle" class="secondary">.TXT ডাউনলোড</button></div>
+<div id="styleStatus" class="status" role="status"></div>
+<h2 style="margin-top:20px">📝 দ্রুত প্রিভিউ</h2>
+<div id="preview" class="preview">গানের নাম ও লিরিক লিখলে এখানে প্রিভিউ দেখা যাবে।</div>
+<div class="actions"><button id="refreshPreview" class="secondary">প্রিভিউ আপডেট</button></div>
+</section>
+</main>
+<div class="footer">Lyric Studio • Rony’s Creative Workspace • No account required</div>
+<script>
+const $=id=>document.getElementById(id);
+const fields=['songTitle','language','genre','mood','lyrics','vocal','tempo','instruments','arc'];
+const readData=()=>Object.fromEntries(fields.map(id=>[id,$(id).value]));
+function setStatus(id,msg){$(id).textContent=msg;setTimeout(()=>{if($(id).textContent===msg)$(id).textContent=''},3500)}
+function makeStyle(){const d=readData();const s=[
+`Genre: ${d.genre} (Bangla song)`,
+`Mood: ${d.mood}`,
+`Vocal: ${d.vocal}; expressive, natural, clear diction`,
+`Tempo: ${d.tempo}`,
+`Instruments: ${d.instruments}`,
+`Emotional arc: ${d.arc}`,
+`Language: ${d.language}`,
+`Production: polished studio mix, warm low end, clear lead vocal, tasteful dynamics, no unnecessary vocal layers`,
+`Structure: short intro → verse → memorable chorus/hook → verse 2 → chorus → bridge → final chorus → gentle outro`,
+`Lyrics: preserve the supplied lyrics; do not invent extra lines or change the language.`
+].join('\\n');$('styleOutput').value=s;setStatus('styleStatus','Style Box তৈরি হয়েছে।');return s}
+function updatePreview(){const d=readData();$('preview').textContent=(d.songTitle||'নামহীন গান')+'\\n'+d.genre+' • '+d.mood+'\\n\\n'+(d.lyrics||'এখনো লিরিক লেখা হয়নি।')}
+function download(name,text){const blob=new Blob([text],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+$('saveBtn').onclick=()=>{try{localStorage.setItem('lyricStudioDraftV1',JSON.stringify(readData()));setStatus('songStatus','এই ডিভাইসে খসড়া সেভ হয়েছে।')}catch(e){setStatus('songStatus','সেভ করা যায়নি। TXT ডাউনলোড করে রাখুন।')}};
+$('txtBtn').onclick=()=>{const d=readData();download((d.songTitle||'lyrics').replace(/[\\/:*?"<>|]/g,'_')+'.txt',`গানের নাম: ${d.songTitle}\\nভাষা: ${d.language}\\nধরন: ${d.genre}\\nমুড: ${d.mood}\\n\\n${d.lyrics}`)};
+$('clearBtn').onclick=()=>{if(confirm('লিরিকের ইনপুট খালি করবেন? আগে সেভ বা TXT ডাউনলোড করে নিন।')){$('songTitle').value='';$('lyrics').value='';updatePreview();setStatus('songStatus','ইনপুট খালি হয়েছে।')}};
+$('makeStyle').onclick=makeStyle;
+$('copyStyle').onclick=async()=>{if(!$('styleOutput').value)makeStyle();try{await navigator.clipboard.writeText($('styleOutput').value);setStatus('styleStatus','কপি হয়েছে।')}catch(e){$('styleOutput').focus();$('styleOutput').select();setStatus('styleStatus','লেখা সিলেক্ট করা হয়েছে—Copy চাপুন।')}};
+$('downloadStyle').onclick=()=>download('LyricStudio-StyleBox.txt',$('styleOutput').value||makeStyle());
+$('refreshPreview').onclick=updatePreview;
+try{const saved=localStorage.getItem('lyricStudioDraftV1');if(saved){const d=JSON.parse(saved);fields.forEach(id=>{if(typeof d[id]==='string')$(id).value=d[id]})}}catch(e){}
+updatePreview();
+</script>
+</body></html>
