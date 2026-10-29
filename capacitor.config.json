@@ -1,0 +1,6 @@
+{
+  "appId": "com.tanvir.lyricstudio",
+  "appName": "Lyric Studio",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}
